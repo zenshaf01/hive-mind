@@ -14,6 +14,7 @@ user.update!(
     password_confirmation: "password"
 )
 
-# 100.times do |i|
-#     BlogPost.create title: "BlogPost #{i}", content: "This is the content if blog #{i}", published_at: Time.current
-# end
+100.times do |i|
+    @blog_post = BlogPost.where(title: "BlogPost #{i}").first_or_initialize
+    blog_post.update(content: "This is the content if blog #{i}", published_at: Time.current)
+end
